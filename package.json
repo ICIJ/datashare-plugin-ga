@@ -1,0 +1,35 @@
+{
+  "name": "@icij/datashare-plugin-ga",
+  "version": "0.0.0",
+  "description": "A Datashare Plugin to add Google Analytics tracking.",
+  "main": "dist/index.umd.min.js",
+  "dependencies": {
+    "vue-analytics": "^5.22.1"
+  },
+  "devDependencies": {
+    "@vue/cli": "^4.2.3",
+    "@vue/cli-service-global": "^4.2.3",
+    "geckodriver": "^1.19.1",
+    "nightwatch": "^1.3.4"
+  },
+  "private": false,
+  "scripts": {
+    "test:e2e": "nightwatch",
+    "test:pack": "mkdir -p ./tmp && cat \"$(npm pack)\" | tar zxvf - -C ./tmp",
+    "test:datashare": "DS_DOCKER_GA_ID=UA-0000000-0 datashare --tcpListenPort 8008 --pluginsDir=$(pwd)/tmp",
+    "test:clean": "rm *.tgz || /bin/true",
+    "test": "yarn test:e2e",
+    "pretest": "yarn build && yarn test:pack",
+    "posttest": "yarn test:clean",
+    "build": "npx vue build --target lib --name index",
+    "prepublishOnly": "yarn build"
+  },
+  "author": "pirhoo",
+  "license": "ISC",
+  "vue": {
+    "filenameHashing": false
+  },
+  "files": [
+    "dist/{css,js}/*.{css,js,map}"
+  ]
+}
