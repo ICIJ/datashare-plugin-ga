@@ -3,13 +3,13 @@ workflows:
   version: 2
   test:
     jobs:
-      - test-5.9.20
+      - test-5.9.21
 jobs:
-  test-5.9.20: &test-master
+  test-5.9.21: &test-master
     docker:
       - image: circleci/node:jessie-browsers
         environment:
-          - "DATASHARE_VERSION=5.9.20"
+          - "DATASHARE_VERSION=5.9.21"
     steps:
       - checkout
       - run:
