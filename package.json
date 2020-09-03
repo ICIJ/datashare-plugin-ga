@@ -1,6 +1,6 @@
 {
   "name": "@icij/datashare-plugin-ga",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Datashare Plugin to add Google Analytics tracking.",
   "main": "main.js",
   "dependencies": {
