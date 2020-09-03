@@ -1,8 +1,8 @@
 {
   "name": "@icij/datashare-plugin-ga",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A Datashare Plugin to add Google Analytics tracking.",
-  "main": "dist/index.umd.min.js",
+  "main": "main.js",
   "dependencies": {
     "vue-analytics": "^5.22.1"
   },
