@@ -4,18 +4,21 @@
   "description": "A Datashare Plugin to add Google Analytics tracking.",
   "main": "dist/index.umd.min.js",
   "dependencies": {
-    "vue-analytics": "^5.22.1"
+    "vue": "^3.4.29",
+    "vue-gtag-next": "^1.14.0"
   },
   "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.5",
     "geckodriver": "^4.4.1",
     "nightwatch": "^3.6.3",
-    "vite": "^5.3.1"
+    "vite": "^5.3.1",
+    "vite-plugin-externals": "^0.6.2"
   },
   "private": false,
   "scripts": {
     "test:e2e": "nightwatch",
     "test:pack": "mkdir -p ./tmp && cat \"$(npm pack)\" | tar zxvf - -C ./tmp",
-    "test:datashare": "DS_DOCKER_GA_ID=UA-0000000-0 datashare --tcpListenPort 8008 --pluginsDir=$(pwd)/tmp",
+    "test:datashare": "DS_DOCKER_GA_ID=UA-0000000-0 datashare --tcpListenPort 8080 --pluginsDir=$(pwd)/tmp",
     "test:clean": "rm *.tgz || /bin/true",
     "test": "yarn test:e2e",
     "pretest": "yarn build && yarn test:pack",
@@ -23,12 +26,9 @@
     "build": "npx vite build",
     "prepublishOnly": "yarn build"
   },
-  "author": "pirhoo",
-  "license": "ISC",
-  "vue": {
-    "filenameHashing": false
-  },
+  "author": "ICIJ <engineering@icij.org>",
+  "license": "MIT",
   "files": [
-    "dist/{css,js}/*.{css,js,map}"
+    "dist"
   ]
 }
