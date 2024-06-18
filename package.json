@@ -20,7 +20,7 @@
     "test": "yarn test:e2e",
     "pretest": "yarn build && yarn test:pack",
     "posttest": "yarn test:clean",
-    "build": "npx vue build --target lib --name index",
+    "build": "npx vite build",
     "prepublishOnly": "yarn build"
   },
   "author": "pirhoo",
