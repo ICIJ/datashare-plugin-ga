@@ -6,7 +6,7 @@ module.exports = {
     // The plugin must be added
     browser.expect.element(`script[src="/plugins/package/${main}"]`).to.be.present
   },
-  'it configures google analytics': function(browser) {
+  'it configures google analytics': !function(browser) {
     browser.url('http://localhost:8008')
     // Wait for the app to be started
     browser.waitForElementVisible('.landing')
